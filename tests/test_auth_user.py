@@ -28,6 +28,8 @@ class TestAuth:
         with allure.step('Пользователь находится на странице выбора товаров'):
             browser.should(have.url_containing(Pages.main_page))
 
+    @allure.feature('Авторизация пользователя')
+    @allure.tag('auth')
     @allure.title('Авторизация заблокированным пользователем')
     def test_auth_with_locked_user(self):
         with allure.step('Открываем страницу авторизации'):
@@ -48,6 +50,8 @@ class TestAuth:
         with allure.step('Пользователь остается на странице авторизации'):
             browser.should(have.url_containing(Pages.auth_page))
 
+    @allure.feature('Авторизация пользователя')
+    @allure.tag('auth')
     @allure.title('Авторзация пользователя с неверным паролем')
     def test_auth_with_incorrect_password(self):
         with allure.step('Открываем страницу авторизации'):
