@@ -9,6 +9,8 @@ auth_page = AuthPage()
 
 class TestAuth:
 
+    @allure.feature('Авторизация пользователя')
+    @allure.tag('auth')
     @allure.title('Успешная авторизация пользователя')
     def test_success_auth(self):
         with allure.step('Открываем страницу авторизации'):
