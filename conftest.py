@@ -37,8 +37,8 @@ def setup_browser(request):
             "enableVideo": True
         }
     }
-    login = os.getenv('LOGIN')
-    password = os.getenv('PASSWORD')
+    login = os.getenv('SELENOID_LOGIN')
+    password = os.getenv('SELENOID_PASSWORD')
 
     options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
