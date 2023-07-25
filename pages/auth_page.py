@@ -9,6 +9,7 @@ class AuthPage:
         self.submit = browser.element('[data-test="login-button"]')
         self.error_block = browser.element('[data-test="error"]')
         self.error_block_text = 'Epic sadface: Sorry, this user has been locked out.'
+        self.error_incorrect_password = 'Epic sadface: Username and password do not match any user in this service'
 
     @staticmethod
     def open():
@@ -27,3 +28,6 @@ class AuthPage:
 
     def locked_user_error(self):
         self.error_block.should(have.text(self.error_block_text))
+
+    def incorrect_password(self):
+        self.error_block.should(have.text(self.error_incorrect_password))
