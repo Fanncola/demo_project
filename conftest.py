@@ -22,6 +22,13 @@ def load_env():
 
 
 @pytest.fixture(autouse=True)
+def get_users():
+    standart_user = os.getenv('STANDART_USER')
+    locked_user = os.getenv('LOCKED_USER')
+    password = os.getenv('USER_PASSWORD')
+
+
+@pytest.fixture(autouse=True)
 def setup_browser(request):
     browser.config.base_url = 'https://www.saucedemo.com'
     browser.config.window_width = 1440
@@ -40,7 +47,9 @@ def setup_browser(request):
     }
     login = os.getenv('LOGIN')
     password = os.getenv('PASSWORD')
-
+    standart_user = os.getenv('STANDART_USER')
+    locked_user = os.getenv('LOCKED_USER')
+    password = os.getenv('USER_PASSWORD')
     # options.capabilities.update(selenoid_capabilities)
     # driver = webdriver.Remote(
     #     command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",

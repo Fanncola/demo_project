@@ -1,5 +1,4 @@
 from selene import browser, have
-import os
 
 
 class AuthPage:
@@ -8,6 +7,8 @@ class AuthPage:
         self.user_name = browser.element('[data-test="username"]')
         self.password = browser.element('[data-test="password"]')
         self.submit = browser.element('[data-test="login-button"]')
+        self.error_block = browser.element('[data-test="error"]')
+        self.error_block_text = 'Epic sadface: Sorry, this user has been locked out.'
 
     @staticmethod
     def open():
@@ -23,3 +24,6 @@ class AuthPage:
 
     def submit_form(self):
         self.submit.submit()
+
+    def locked_user_error(self):
+        self.error_block.should(have.text(self.error_block_text))
